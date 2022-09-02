@@ -53,7 +53,13 @@ const displayCategorysNews = (allNews) => {
                 <div class="card-body">
                     <h5 class="font-bold">${sigleItem.title}</h5>
                     <p class="text-alipsis pt-2">${sigleItem.details}</p>
-                    <p class="font-bold"><small class="">${sigleItem.author.name ? sigleItem.author.name : 'not found'}</small></p>
+                    <div class="d-flex align-items-center">
+                         <div><img class="rounded-full" id="authorImg" src="${sigleItem.author.img}" alt=""></div>
+                      <div>
+                         <small class="font-bold block">${sigleItem.author.name ? sigleItem.author.name : 'not found'}</small>
+                         <smalll>${sigleItem.author.published_date}</small>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
