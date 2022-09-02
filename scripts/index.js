@@ -44,7 +44,7 @@ const displayCategorysNews = (allNews) => {
         console.log(sigleItem);
         const div = document.createElement('div');
         div.innerHTML = `
-        <div class="card mb-3" style="max-width: 540px;">
+        <div class="card mb-3" style="max-width: 640px;">
         <div class="row g-0">
             <div class="col-md-4">
                 <img src="${sigleItem.thumbnail_url}" class="img-fluid rounded-start" alt="...">
@@ -53,7 +53,7 @@ const displayCategorysNews = (allNews) => {
                 <div class="card-body">
                     <h5 class="font-bold">${sigleItem.title}</h5>
                     <p class="text-alipsis pt-2">${sigleItem.details}</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <p class="font-bold"><small class="">${sigleItem.author.name ? sigleItem.author.name : 'not found'}</small></p>
                 </div>
             </div>
         </div>
