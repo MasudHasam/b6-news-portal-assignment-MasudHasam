@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WELCOME TO CDC NEWS</title>
-    <!-- font icon -->
+    <title>CDC NEWS</title>
+    <!--  icons -->
     <link href="https://cdn.lineicons.com/3.0/lineicons.css" rel="stylesheet">
 
     <!-- css link -->
@@ -47,14 +47,15 @@
     <main>
         <section class="catagory-area w-11/12 mx-auto">
             <div id="displayCatagory"
-                class="mt-4 bg-slate-300 px-2 py-2 rounded-bottom grid grid-cols-2 gap-4  md:grid-cols-4 lg:grid-cols-8">
+                class="mt-2 bg-slate-300 px-2 py-2 rounded grid grid-cols-2 gap-4  md:grid-cols-4 lg:grid-cols-8">
 
             </div>
         </section>
 
-        <section class="find-item-area mt-3 bg-gray-300 w-11/12 mx-auto rounded-bottom">
-            <div class="px-3 py-3">
-                <p><span>00</span> items found for category <span>Sports</span></p>
+        <section class="find-item-area mt-2 bg-gray-300 w-11/12 mx-auto rounded">
+            <div class="px-3 py-3 text-xl italic text-black">
+                <p><span class="font-semibold" id="itemCount">00</span> items found for category <span
+                        class="font-bold text-orange-800" id="itemName">Sports</span></p>
             </div>
         </section>
 
@@ -79,8 +80,18 @@
         </section>
 
 
-        <section id="errorMasage" class="noItemFound-section mt-28 mb-28">
-            <h1 class="text-4xl font-extrabold text-red-800 text-center">No items found.</h1>
+        <section id="errorMasage" class="noItemFound-section mt-28 mb-28 d-none">
+            <h1 class="text-4xl font-bold text-gray-600 text-center">No items found.<span
+                    class="text-gray-900">404!</span> error...</h1>
+        </section>
+
+
+        <section id="spiner" class="spinerSection d-none">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border text-green-800" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
         </section>
 
 

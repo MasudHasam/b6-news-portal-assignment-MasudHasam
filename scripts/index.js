@@ -31,6 +31,37 @@ const displayCatagory = (catagories) => {
 };
 
 const loadCategorysData = async (id) => {
+
+    const itemName = document.getElementById('itemName');
+    switch (id) {
+        case '01':
+            itemName.innerText = 'Breaking News';
+            break;
+        case '02':
+            itemName.innerText = 'Regular News';
+            break;
+        case '03':
+            itemName.innerText = 'International News';
+            break;
+        case '04':
+            itemName.innerText = 'Sports';
+            break;
+        case '05':
+            itemName.innerText = 'Entertainment';
+            break;
+        case '06':
+            itemName.innerText = 'Culture';
+            break;
+        case '07':
+            itemName.innerText = 'Arts';
+            break;
+        case '08':
+            itemName.innerText = 'All News';
+            break;
+    };
+
+    const spiner = document.getElementById('spiner');
+    spiner.classList.remove('d-none');
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     const res = await fetch(url);
     const data = await res.json();
@@ -38,11 +69,15 @@ const loadCategorysData = async (id) => {
 }
 
 const displayCategorysNews = (allNews) => {
+
+    const itemCount = document.getElementById('itemCount');
+    itemCount.innerText = allNews.length;
+
     const removeItem = document.getElementById('errorMasage')
-    if (allNews.length !== 0) {
-        removeItem.classList.add('d-none');
-    } else {
+    if (allNews.length === 0) {
         removeItem.classList.remove('d-none');
+    } else {
+        removeItem.classList.add('d-none');
     }
 
     const newsPost = document.getElementById('newsPost');
@@ -82,6 +117,9 @@ const displayCategorysNews = (allNews) => {
         `;
         newsPost.appendChild(div);
     });
+
+    const spiner = document.getElementById('spiner');
+    spiner.classList.add('d-none');
 }
 
 
