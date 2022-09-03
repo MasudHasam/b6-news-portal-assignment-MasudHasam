@@ -71,7 +71,8 @@ const loadCategorysData = async (id) => {
 }
 
 const displayCategorysNews = (allNews) => {
-
+    console.log(allNews)
+    allNews.sort((first, second) => first.total_view - second.total_view);
     const itemCount = document.getElementById('itemCount');
     itemCount.innerText = allNews.length;
 
