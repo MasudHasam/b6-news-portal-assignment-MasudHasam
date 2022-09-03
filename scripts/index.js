@@ -10,6 +10,7 @@ const loadCatagories = async () => {
     }
 }
 
+//this function is for display all the category.
 const displayCatagory = (catagories) => {
     const displayCatagory = document.getElementById('displayCatagory');
     for (const catagory of catagories) {
@@ -27,8 +28,11 @@ const displayCatagory = (catagories) => {
     }
 };
 
+
+//this function is for load categorys data.
 const loadCategorysData = async (id) => {
 
+    //show category name on sort section.
     const itemName = document.getElementById('itemName');
     switch (id) {
         case '01':
@@ -57,8 +61,10 @@ const loadCategorysData = async (id) => {
             break;
     };
 
+    //this code is for spiner ... while data is loading.
     const spiner = document.getElementById('spiner');
     spiner.classList.remove('d-none');
+
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
     try {
         const res = await fetch(url);
@@ -70,19 +76,28 @@ const loadCategorysData = async (id) => {
 
 }
 
+//this function is for display news post according to category.
 const displayCategorysNews = (allNews) => {
-    console.log(allNews)
+
+
+    //this 2 line code is for sort the array and make it desanding.
     allNews.sort((first, second) => first.total_view - second.total_view);
     allNews.reverse();
+
+
+    //this 2 line code is for show how many post is loaded in a category.
     const itemCount = document.getElementById('itemCount');
     itemCount.innerText = allNews.length;
 
+
+    //this condition is for show error massage if no data found.
     const removeItem = document.getElementById('errorMasage')
     if (allNews.length === 0) {
         removeItem.classList.remove('d-none');
     } else {
         removeItem.classList.add('d-none');
     }
+
 
     const newsPost = document.getElementById('newsPost');
     newsPost.innerHTML = '';
@@ -122,11 +137,13 @@ const displayCategorysNews = (allNews) => {
         newsPost.appendChild(div);
     });
 
+    //this 2 line code is for make the spiner stop while data is loaded.
     const spiner = document.getElementById('spiner');
     spiner.classList.add('d-none');
 }
 
 
+//this function is for details button.
 const detailsButton = async (itemId) => {
     const url = `https://openapi.programming-hero.com/api/news/${itemId}`;
     try {
@@ -139,6 +156,7 @@ const detailsButton = async (itemId) => {
 };
 
 
+//this function is for show details is a modal.
 const setModalDetails = (itemDetails) => {
     const insideModal = document.getElementById('insideModal');
     insideModal.innerHTML = '';
@@ -169,10 +187,11 @@ const setModalDetails = (itemDetails) => {
     insideModal.appendChild(div);
 }
 
-loadCategorysData(id = '01');
+
+loadCategorysData(id = '01');//this function will show by-defoult load first categorys data on display.
 loadCatagories();
 
-//this function is for blog section.
+//this function is for blog section.show bog in display.
 const blogFunction = () => {
     const mainSection = document.getElementById('mainSection');
     mainSection.classList.add('d-none');
@@ -180,7 +199,7 @@ const blogFunction = () => {
     blogSection.classList.remove('d-none');
 }
 
-//this function is for new button or main section
+//this function is for News button or show main section again.
 const newsFunction = () => {
     const mainSection = document.getElementById('mainSection');
     mainSection.classList.remove('d-none');
