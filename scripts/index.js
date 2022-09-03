@@ -1,9 +1,13 @@
 ///this function is for get all catagories .
 const loadCatagories = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCatagory(data.data.news_category);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCatagory(data.data.news_category);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const displayCatagory = (catagories) => {
@@ -19,13 +23,6 @@ const displayCatagory = (catagories) => {
            <button onclick="loadCategorysData('${catagory.category_id}')">${catagoryName}</button>
         `;
         displayCatagory.appendChild(div)
-        // const button = document.createElement('button');
-        // button.classList.add('hover:bg-gray-400')
-        // button.classList.add('py-0')
-        // button.classList.add('rounded-xl')
-        // button.classList.add('px-0')
-        // button.innerText = catagoryName;
-        // displayCatagory.appendChild(button);
 
     }
 };
@@ -63,9 +60,14 @@ const loadCategorysData = async (id) => {
     const spiner = document.getElementById('spiner');
     spiner.classList.remove('d-none');
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategorysNews(data.data);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategorysNews(data.data);
+    } catch (error) {
+        console.log(error);
+    }
+
 }
 
 const displayCategorysNews = (allNews) => {
@@ -125,9 +127,13 @@ const displayCategorysNews = (allNews) => {
 
 const detailsButton = async (itemId) => {
     const url = `https://openapi.programming-hero.com/api/news/${itemId}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    setModalDetails(data.data[0]);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        setModalDetails(data.data[0]);
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 
@@ -148,7 +154,7 @@ const setModalDetails = (itemDetails) => {
              <img class="mt-3  rounded-full" id="modalAuthorImage" src="${itemDetails.author.img}" class="img-fluid rounded-start" alt="...">
              <p class="text-bold text-stone-500">Author: ${itemDetails.author.name ? itemDetails.author.name : 'not found'}</p>
              <p class="text-bold text-stone-500 ">Published_date: ${itemDetails.author.published_date ? itemDetails.author.published_date : 'not found'}</p>
-             <p class="text-bold text-stone-500 ">Ratings: ${itemDetails.rating.number} 
+             <p class="text-bold text-stone-500 ">Ratings: ${itemDetails.rating.number ? itemDetails.rating.number : 'not found'} 
                  <i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-half"></i></p>
              
         </div>
