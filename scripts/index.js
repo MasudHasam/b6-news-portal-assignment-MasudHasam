@@ -88,7 +88,7 @@ const displayCategorysNews = (allNews) => {
         const div = document.createElement('div');
         div.innerHTML = `
         <div class="card mb-3" style="max-width: 840px;">
-        <div class="row g-0">
+        <div class="row g-0 px-2 pt-2 pb-0">
             <div class="col-md-4">
                 <img src="${sigleItem.thumbnail_url}" class="img-fluid rounded-start" alt="...">
             </div>
@@ -169,3 +169,19 @@ const setModalDetails = (itemDetails) => {
 
 loadCategorysData(id = '01');
 loadCatagories();
+
+//this function is for blog section.
+const blogFunction = () => {
+    const mainSection = document.getElementById('mainSection');
+    mainSection.classList.add('d-none');
+    const blogSection = document.getElementById('blogSection');
+    blogSection.classList.remove('d-none');
+}
+
+//this function is for new button or main section
+const newsFunction = () => {
+    const mainSection = document.getElementById('mainSection');
+    mainSection.classList.remove('d-none');
+    const blogSection = document.getElementById('blogSection');
+    blogSection.classList.add('d-none');
+}

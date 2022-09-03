@@ -32,9 +32,9 @@
                         class="text-red-500">D</span>C NE<span class="text-amber-500">W</span>S</a>
                 <div class="d-flex gap-4">
                     <div class="pt-1">
-                        <button
+                        <button onclick="newsFunction()"
                             class="font-semibold hover:bg-orange-400 px-3 py-1 rounded-xl btn btn-info border-0 ">News</button>
-                        <button
+                        <button onclick="blogFunction()"
                             class="font-semibold hover:bg-orange-400 px-3 py-1 rounded-xl btn btn-info border-0">Blog</button>
                     </div>
                     <img style="height: 40px; width: 40px;" class="rounded-full"
@@ -44,7 +44,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main id="mainSection">
         <section class="catagory-area w-11/12 mx-auto">
             <div id="displayCatagory"
                 class="mt-2 bg-slate-300 px-2 py-2 rounded grid grid-cols-2 gap-4  md:grid-cols-4 lg:grid-cols-8">
@@ -112,6 +112,73 @@
             </div>
         </section>
     </main>
+
+    <!-- this section is for blog page. -->
+    <section id="blogSection" class="d-none mt-10 mb-20">
+        <h1 class="mb-10 text-2xl font-bold text-center">Welcome to our blog.</h1>
+        <div class=" bg-slate-200  rounded-md py-10 px-6">
+            <div class="mt-2 mb-5">
+                <h1 class="font-bold ">Question No-1: What is the difference between var, let and const?</h1>
+                <p><span class="font-bold ">Answer:</span>There are three keywords in JavaScript that can be used to
+                    declare variables:
+                    let, var, and
+                    const. Each keyword has different rules and implications for how the variables they create can be
+                    used.
+
+                    let: The let keyword declares a block-scoped local variable, optionally initializing it to a value.
+                    Block-scoped means that the variable is only available within the block it was declared in, which is
+                    usually denoted by curly braces {}.
+
+                    var: The var keyword declares a function-scoped or global variable, optionally initializing it to a
+                    value.
+                    Function-scoped means that the variable is only available within the function it was declared in.
+                    Global variables are available throughout your entire code.
+
+                    const: The const keyword declares a block-scoped, immutable constant variable, i.e. a variable that
+                    can’t be reassigned.
+                    Constants are also called “immutable variables”, but that’s a bit of a misnomer since they are
+                    actually variables – just ones that can’t be reassigned.</p>
+            </div>
+            <div class="mt-2 mb-5">
+                <h1 class="font-bold ">Question No-2: What is the difference between arrow function and regular
+                    function?</h1>
+                <p><span class="font-bold ">Answer:</span>An arrow function is also known as the fat arrow function. It
+                    is a new feature
+                    introduced in
+                    ES6 that is a more concise syntax for writing function expressions. Both regular JavaScript
+                    functions and arrow functions work in a similar manner but there are some differences between them.
+                    for examle 1.Syntax 2.Arguments binding 3.Use of this keyword 4.Using a new keyword.
+                </p>
+            </div>
+            <div class="mt-2 mb-5">
+                <h1 class="font-bold ">Question No-3: What is the difference between map, foreach, filter and find?</h1>
+                <p><span class="font-bold ">Answer:</span>forEach and map both iterate over the elements of an array. So
+                    also do the
+                    methods filter,
+                    find, reduce, some and every.
+
+                    The main differences are whether and how they return data and how expensive it may be in terms of
+                    performance.
+
+                    forEach only iterates over an array and does not return a value. In theory this will be lower in
+                    resources if you don't need the type of return value the other methods provide.
+
+                    map iterates over the entire array returning a new array of the same size with the values that were
+                    returned for each iteration in place of the original values. For instance, if I had an array of
+                    objects with numerous properties, but I just wanted to have an array of the IDs of those objects, I
+                    could write this.</p>
+            </div>
+            <div class="mt-2 mb-5">
+                <h1 class="font-bold ">Question No-4:why should we use template string?</h1>
+                <p><span class="font-bold ">Answer:</span>Template strings are a powerful feature of modern JavaScript
+                    released in ES6. It
+                    lets us
+                    insert/interpolate variables and expressions into strings without needing to concatenate like in
+                    older versions of JavaScript. It allows us to create strings that are complex and contain dynamic
+                    elements</p>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-dark h-24 mt-10">
         <div class=" font-bold text-slate-300 italic d-flex pt-5 justify-content-center gap-3">
