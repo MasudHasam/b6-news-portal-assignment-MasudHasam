@@ -87,7 +87,33 @@ const detailsButton = async (itemId) => {
 
 
 const setModalDetails = (itemDetails) => {
-    console.log(itemDetails.total_view);
+    const insideModal = document.getElementById('insideModal');
+    insideModal.innerHTML = '';
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <div class="modal-content">
+        <div class="modal-header bg-slate-800">
+           <h5 class="modal-title text-white font-semibold" id="staticBackdropLabel">${itemDetails.title}</h5>
+           <button type="button" class="btn-close bg-red-400" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+             <img class="w-11/12  mx-auto pb-2" src="${itemDetails.image_url}" class="img-fluid rounded-start" alt="...">
+             <p>${itemDetails.details}</p>
+             <img class="mt-3  rounded-full" id="modalAuthorImage" src="${itemDetails.author.img}" class="img-fluid rounded-start" alt="...">
+             <p class="text-bold text-stone-500">Author: ${itemDetails.author.name ? itemDetails.author.name : 'not found'}</p>
+             <p class="text-bold text-stone-500 ">Published_date: ${itemDetails.author.published_date ? itemDetails.author.published_date : 'not found'}</p>
+             <p class="text-bold text-stone-500 ">Ratings: ${itemDetails.rating.number} 
+                 <i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-half"></i></p>
+             
+        </div>
+        <div class="modal-footer">
+           <button type="button" class="btn btn-primary bg-slate-700"
+              data-bs-dismiss="modal">Close</button>
+         </div>
+    </div>
+    `;
+    insideModal.appendChild(div);
 }
 
 loadCatagories();
