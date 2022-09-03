@@ -73,6 +73,7 @@ const loadCategorysData = async (id) => {
 const displayCategorysNews = (allNews) => {
     console.log(allNews)
     allNews.sort((first, second) => first.total_view - second.total_view);
+    allNews.reverse();
     const itemCount = document.getElementById('itemCount');
     itemCount.innerText = allNews.length;
 
@@ -88,8 +89,8 @@ const displayCategorysNews = (allNews) => {
     allNews.forEach(sigleItem => {
         const div = document.createElement('div');
         div.innerHTML = `
-        <div class="card mb-3" style="max-width: 840px;">
-        <div class="row g-0 px-2 pt-2 pb-0">
+        <div class="card mb-3 h-72" style="max-width: 840px;">
+        <div class="row g-0 px-2 pt-2 pb-0 ">
             <div class="col-md-4">
                 <img src="${sigleItem.thumbnail_url}" class="img-fluid rounded-start" alt="...">
             </div>
