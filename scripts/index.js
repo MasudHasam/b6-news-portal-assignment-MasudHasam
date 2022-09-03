@@ -38,6 +38,13 @@ const loadCategorysData = async (id) => {
 }
 
 const displayCategorysNews = (allNews) => {
+    const removeItem = document.getElementById('errorMasage')
+    if (allNews.length !== 0) {
+        removeItem.classList.add('d-none');
+    } else {
+        removeItem.classList.remove('d-none');
+    }
+
     const newsPost = document.getElementById('newsPost');
     newsPost.innerHTML = '';
     allNews.forEach(sigleItem => {
@@ -116,4 +123,5 @@ const setModalDetails = (itemDetails) => {
     insideModal.appendChild(div);
 }
 
+loadCategorysData(id = '01');
 loadCatagories();
